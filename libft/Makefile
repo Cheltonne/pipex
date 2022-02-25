@@ -6,7 +6,7 @@
 #    By: chajax <chajax@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/18 12:14:46 by chajax            #+#    #+#              #
-#    Updated: 2022/01/21 23:30:15 by chajax           ###   ########.fr        #
+#    Updated: 2022/02/11 10:59:29 by chajax           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ RM = rm -f
 
 FILES = ft_memset \
 		ft_bzero \
+		ft_strjoin \
 		ft_memcpy \
 		ft_memccpy \
 		ft_memmove \
@@ -43,7 +44,6 @@ FILES = ft_memset \
 		ft_calloc \
 		ft_strdup \
 		ft_substr \
-		ft_strjoin \
 		ft_strtrim \
 		ft_split \
 		ft_itoa \

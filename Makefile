@@ -10,20 +10,32 @@ FILES = pipex \
 		 processes \
 		 error_handling \
 		 free_fct \
+		 pipex_utils \
+		 bonus \
 
-SRCS =  $(addsuffix .c, $(FILES))
+GNL_FILES = get_next_line \
+			get_next_line_utils \
 
-OBJS =	$(addsuffix .o, $(FILES))
+PIPEX_DIR = pipex_dir/
 
-.c.o: $(SRCS)
-	$(CC) $(CFLAGS) -c -o $@ $<
+GNL_DIR = gnl/
+
+SRCS =	$(addprefix $(PIPEX_DIR), $(addsuffix .c, $(FILES))) \
+		$(addprefix $(GNL_DIR), $(addsuffix .c, $(GNL_FILES))) \
+
+OBJS =	$(addprefix $(PIPEX_DIR), $(addsuffix .o, $(FILES))) \
+		$(addprefix $(GNL_DIR), $(addsuffix .o, $(GNL_FILES))) \
+
+.c.o:	$(SRCS)
+		$(CC) $(CFLAGS) -c -o $@ $<
 
 $(NAME): $(OBJS)
 	make -C libft
 	$(CC) $(CFLAGS) -o $@ $^ $(FLAGS)
-	make clean
 
 all: $(NAME)
+
+bonus: all
 
 clean:
 	make clean -C libft 
@@ -32,9 +44,6 @@ clean:
 fclean: clean
 	make fclean -C libft
 	$(RM) $(NAME)
-
-norminette: $(SRCS)
-	norminette $(SRCS) $(addsuffix .h, $(NAME))
 
 re: clean all
 
